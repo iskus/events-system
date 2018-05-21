@@ -1,9 +1,9 @@
 <?php
 class EventManager {
-    protected $events = array();
+    protected $events = [];
     public function attach($eventName, $callback) {
         if (!isset($this->events[$eventName])) {
-            $this->events[$eventName] = array();
+            $this->events[$eventName] = [];
         }
         $this->events[$eventName][] = $callback;
     }
