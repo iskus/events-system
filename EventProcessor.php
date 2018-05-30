@@ -19,7 +19,7 @@ class EventProcessor
 
     private static function eventCreator()
     {
-        $name = self::$eventClassName.'Event';
+        $name = self::$eventClassName . 'Event';
         self::$event = new $name(self::$data);
 
         foreach (self::$data as $key => $val) {

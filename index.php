@@ -26,10 +26,18 @@ test('login.warning', $loginWarningData);
 test('ticket.created', $ticketData);
 
 $eventManager = new EventManager;
-$eventManager->attach('book.block', function() use ($blockBookData) { echo "system user / "; });
-$eventManager->attach('login.warning', function() use ($loginWarningData) { echo "email user / "; });
-$eventManager->attach('ticket.created', function() use ($ticketData) { echo "email admin / "; });
-$eventManager->attach('ticket.created', function() use ($ticketData) { echo "email user / "; });
+$eventManager->attach('book.block', function () use ($blockBookData) {
+    echo "system user / ";
+});
+$eventManager->attach('login.warning', function () use ($loginWarningData) {
+    echo "email user / ";
+});
+$eventManager->attach('ticket.created', function () use ($ticketData) {
+    echo "email admin / ";
+});
+$eventManager->attach('ticket.created', function () use ($ticketData) {
+    echo "email user / ";
+});
 $eventManager->trigger('login.warning');
 $eventManager->trigger('book.block');
 $eventManager->trigger('ticket.created');
